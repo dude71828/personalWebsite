@@ -20,6 +20,7 @@
       --text-muted: #b8afce;
       --border: rgba(155, 109, 255, 0.15);
       --card: rgba(255,255,255,0.03);
+      --link: rgba(0, 180, 193, 0.8);
     }
 
     html { scroll-behavior: smooth; }
@@ -32,6 +33,36 @@
       min-height: 100vh;
       overflow-x: hidden;
     }
+
+    /* Style for all links (unvisited) */
+    a:link:not(.imptlinks):not(.btn) {
+      color: var(--link);
+      background-color: transparent;
+      text-decoration: none; /* Removes default underline */
+    }
+
+    a:visited:not(.imptlinks):not(.btn) {
+      color: var(--link);
+      background-color: transparent;
+      text-decoration: none;
+    }
+
+    a:hover:not(.imptlinks):not(.btn) {
+      color: red;
+      background-color: transparent;
+      text-decoration: underline; /* Adds underline on hover */
+    }
+
+    a:active:not(.imptlinks):not(.btn) {
+      color: yellow;
+      background-color: transparent;
+      text-decoration: underline;
+    }
+
+    a.icon-link:link, a.icon-link:visited { color: var(--accent-soft); text-decoration: none; }
+    a.icon-link:hover { color: var(--accent); text-decoration: none; }
+    a.icon-link svg { display: inline-block; vertical-align: middle; transition: color 0.25s; }
+
 
     /* ─── AMBIENT BACKGROUND ─── */
     body::before {
@@ -510,10 +541,10 @@
 
   <!-- NAV -->
   <nav>
-    <a href="#achievements">Accolades & Achievements</a>
-    <a href="#sidequests">Random Side Quests</a>
-    <a href="#graphs">Scrumptious Simulations</a>
-    <a href="#media">Movies & Music</a>
+    <a href="#achievements" class="imptlinks">Accolades & Achievements</a>
+    <a href="#sidequests" class="imptlinks">Random Side Quests</a>
+    <a href="#graphs" class="imptlinks">Scrumptious Simulations</a>
+    <a href="#media" class="imptlinks">Movies & Music</a>
   </nav>
 
   <!-- HERO -->
@@ -583,43 +614,59 @@
     <h2 class="section-title">Random Side Quests</h2>
     <div class="quests-list">
       <div class="quest-item">
-        <div class="quest-icon">🎸</div>
+        <div class="quest-icon">🎵</div>
         <div class="quest-content">
-          <p class="quest-name">Learning Guitar</p>
-          <p class="quest-desc">A hobby or project you've been exploring on the side. What sparked it, what keeps you going.</p>
-          <span class="quest-tag">Ongoing</span>
+          <p class="quest-name">Electronic Music with Ableton Live Suite</p>
+          <p class="quest-desc">This is genuinely fun and brain-tickling and involves learning basic music theory, sound design, and mixing, other than learning how to use the software. I won 200 bucks doing this for a school project. Here are some bangers I cooked up - <a href="https://drive.google.com/drive/folders/1EDVYdk1hCtMS-dnMwjzpgppQhdqyo90w?usp=sharing" target="_blank">Google Drive Link</a></p>
         </div>
       </div>
       <div class="quest-item">
-        <div class="quest-icon">✈️</div>
+        <div class="quest-icon">🧩</div>
         <div class="quest-content">
-          <p class="quest-name">Travelling Solo</p>
-          <p class="quest-desc">A place you went, what you found there, and how it changed your perspective. One line or three.</p>
-          <span class="quest-tag">Completed</span>
+          <p class="quest-name">Cubing</p>
+          <p class="quest-desc">Warning: Cubing is quite addictive. My PB for 3x3 is around 11s (single) and 15s (Ao5). I did 2x2, 4x4, 5x5, Skewb, and Pyraminx long time ago.</p>
         </div>
       </div>
       <div class="quest-item">
-        <div class="quest-icon">📸</div>
+        <div class="quest-icon">♠️</div>
         <div class="quest-content">
-          <p class="quest-name">Film Photography</p>
-          <p class="quest-desc">That niche interest you picked up unexpectedly. The one people always ask you about at parties.</p>
-          <span class="quest-tag">Ongoing</span>
+          <p class="quest-name">Cardistry</p>
+          <p class="quest-desc">This is the art of moving cards in visually attractive ways (<a href="https://www.youtube.com/watch?v=tMaagZXYhJQ&t=1330s" target="_blank">cardistry 101</a>). I can do a few of the more basic moves, such as Pirouette, Werm, One-Hand Fan. I was most recently tryna learn how to do ATM.</p>
         </div>
       </div>
       <div class="quest-item">
-        <div class="quest-icon">🍳</div>
+        <div class="quest-icon">📄</div>
         <div class="quest-content">
-          <p class="quest-name">Cooking from Scratch</p>
-          <p class="quest-desc">A skill you've been building quietly. What dish did you finally nail? What's still humbling you?</p>
-          <span class="quest-tag">Ongoing</span>
+          <p class="quest-name">Origami</p>
+          <p class="quest-desc">I love Jeremy Shafer Origami bro omg (<a href="https://www.youtube.com/@jeremyshaferorigami" target="_blank">https://www.youtube.com/@jeremyshaferorigami</a>). Anyways origami is pretty satisfying.</p>
+        </div>
+      </div>
+      <div class="quest-item">
+        <div class="quest-icon">🏀</div>
+        <div class="quest-content">
+          <p class="quest-name">Basketball</p>
+          <p class="quest-desc">I love playing basketball, it's a fast paced sport with quick rewards when you score. Usually I put effort in both defense and offense, and I love doing tough layups and mid-range shots from near the free throw line.</p>
+        </div>
+      </div>
+          <div class="quest-item">
+        <div class="quest-icon">💫</div>
+        <div class="quest-content">
+          <p class="quest-name">Other stuff I can do</p>
+          <p class="quest-desc">I also know how to juggle 3 balls, do some pen spinning (<a href="https://www.youtube.com/watch?v=iOaFhUVeDhQ&t=1s" target="_blank">what even is that</a>), and can edit videos on Adobe Premiere Pro.</p>
         </div>
       </div>
     </div>
+
   </section>
 
   <!-- SIMULATIONS -->
   <section id="graphs">
-    <h2 class="section-title">Scrumptious Simulations (Github: <a href="https://github.com/dude71828" target="_blank">💻</a>)</h2>
+    <h2 class="section-title">Scrumptious Simulations (Github: 
+      <a href="https://github.com/dude71828" target="_blank" class="icon-link" style="display:inline-flex;align-items:center;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+    </svg>
+    </a>)</h2>
     <div class="sims-grid">
 
       <div class="sim-card">
@@ -629,7 +676,7 @@
         </div>
         <div class="sim-body">
           <p class="sim-title">2d wave</p>
-          <p class="sim-desc">Mostly copied from: https://scipython.com/blog/the-two-dimensional-wave-equation/. 2D wave simulation using finite differences method to calculate derivatives. Allows for Dirichlet (fully reflecting) and Mur (the wave just passes through) boundary conditions. Added damping term and a few different wave sources.</p>
+          <p class="sim-desc">Mostly copied from <a href="https://scipython.com/blog/the-two-dimensional-wave-equation/" target="_blank">Scipython Blog</a>. 2D wave simulation using finite differences method to calculate derivatives. Allows for Dirichlet (fully reflecting) and Mur (the wave just passes through) boundary conditions. Added damping term and a few different wave sources.</p>
         </div>
       </div>
 
@@ -649,7 +696,7 @@
         </div>
         <div class="sim-body">
           <p class="sim-title">Photo morph</p>
-          <p class="sim-desc">Inspired by https://www.youtube.com/shorts/MeFi68a2pP8. Forms an image using only pixels from a second image, by minimsing the difference in lightness of each pixel. For example, this is Obama made with pixels from noise.</p>
+          <p class="sim-desc">Inspired by <a href="https://www.youtube.com/shorts/MeFi68a2pP8" target="_blank">this video</a>. Forms an image using only pixels from a second image, by minimsing the difference in lightness of each pixel. For example, this is Obama made with pixels from noise.</p>
         </div>
       </div>
 
@@ -669,7 +716,7 @@
         </div>
         <div class="sim-body">
           <p class="sim-title">Convolution on an image</p>
-          <p class="sim-desc">Inspired by https://www.youtube.com/watch?v=KuXjwB4LzSA. Replaces each pixel with a weighted average of neighbouring pixel, often creating blur/shifting effect. Doesn't support negative numbers though, and is quite slow.</p>
+          <p class="sim-desc">Inspired by <a href="https://www.youtube.com/watch?v=KuXjwB4LzSA" target="_blank">this video</a>. Replaces each pixel with a weighted average of neighbouring pixel, often creating blur/shifting effect. Doesn't support negative numbers though, and is quite slow.</p>
         </div>
       </div>
 
@@ -735,7 +782,16 @@
       <!-- MUSIC ROW -->
       <div class="media-row">
         <div>
-          <p class="media-col-title">🎵 Fire music</p>
+          <p class="media-col-title">
+            🎵 Fire music
+            <span style="font-size:0.85rem;font-weight:400;color:var(--text-muted);">
+              <a href="https://open.spotify.com/user/ccxrnyodh7uzj0s2dis6i635w?si=18ebd2ed6de24ef9" target="_blank" class="icon-link" style="display:inline-flex;align-items:center;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+                </svg>
+              </a>
+            </span>
+          </p>
           <div class="media-list">
             <div class="media-item">
               <span class="media-num">01</span>
