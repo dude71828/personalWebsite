@@ -492,6 +492,67 @@
       background: var(--border);
     }
 
+    /* ─── MOVIE ITEMS ─── */
+    .media-item.movie-item {
+      position: relative;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .media-item-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-shrink: 0;
+    }
+    .media-item-right {
+      text-align: right;
+      flex-shrink: 0;
+    }
+    .meta-director {
+      color: var(--accent);
+      font-size: 0.71rem;
+      letter-spacing: 0.04em;
+    }
+    .meta-actors {
+      color: var(--text-muted);
+      font-size: 0.71rem;
+      line-height: 1.5;
+      margin-top: 0.15rem;
+    }
+    .movie-poster-hover {
+      position: absolute;
+      left: calc(100% + 14px);
+      top: 50%;
+      transform: translateY(-50%) scale(0.9);
+      width: 200px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.85), 0 0 0 1px rgba(155,109,255,0.35);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+      z-index: 50;
+    }
+    .movie-poster-hover img {
+      width: 100%;
+      display: block;
+    }
+    .media-item.movie-item:hover .movie-poster-hover {
+      opacity: 1;
+      transform: translateY(-50%) scale(1);
+    }
+
+    /* ─── ALBUM ART ─── */
+    .album-art {
+      width: 46px;
+      height: 46px;
+      border-radius: 4px;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 1px solid var(--border);
+      background: var(--purple-mid);
+    }
+
     /* ─── FOOTER ─── */
     footer {
       position: relative;
@@ -733,39 +794,84 @@
         <div>
           <p class="media-col-title">🎬 Fire films</p>
           <div class="media-list">
-            <div class="media-item">
-              <span class="media-num">01</span>
-              <div class="media-info">
-                <p class="media-name">Shutter Island</p>
-                <p class="media-sub">2010 ‧ Thriller</p>
+            <div class="media-item movie-item">
+              <div class="media-item-left">
+                <span class="media-num">01</span>
+                <div class="media-info">
+                  <p class="media-name">Shutter Island</p>
+                  <p class="media-sub">2010 ‧ Thriller</p>
+                </div>
+              </div>
+              <div class="media-item-right">
+                <p class="meta-director">Director: Martin Scorsese</p>
+                <p class="meta-actors">Leonardo DiCaprio, Mark Ruffalo, Ben Kingsley</p>
+              </div>
+              <div class="movie-poster-hover">
+                <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/nrmXQ0zcZUL8jFLrakWc90IR8z9.jpg" alt="Shutter Island poster">
               </div>
             </div>
-            <div class="media-item">
-              <span class="media-num">02</span>
-              <div class="media-info">
-                <p class="media-name">Get Out</p>
-                <p class="media-sub">2017 ‧ Thriller</p>
+            <div class="media-item movie-item">
+              <div class="media-item-left">
+                <span class="media-num">02</span>
+                <div class="media-info">
+                  <p class="media-name">Get Out</p>
+                  <p class="media-sub">2017 ‧ Thriller</p>
+                </div>
+              </div>
+              <div class="media-item-right">
+                <p class="meta-director">Director: Jordan Peele</p>
+                <p class="meta-actors">Daniel Kaluuya, Allison Williams, Bradley Whitford</p>
+              </div>
+              <div class="movie-poster-hover">
+                <img src="https://image.tmdb.org/t/p/w300/tFXcEccSQMf3lfhfXKSU9iRBpa3.jpg" alt="Get Out poster">
               </div>
             </div>
-            <div class="media-item">
-              <span class="media-num">03</span>
-              <div class="media-info">
-                <p class="media-name">The Truman Show</p>
-                <p class="media-sub">1998 ‧ Drama</p>
+            <div class="media-item movie-item">
+              <div class="media-item-left">
+                <span class="media-num">03</span>
+                <div class="media-info">
+                  <p class="media-name">The Truman Show</p>
+                  <p class="media-sub">1998 ‧ Drama</p>
+                </div>
+              </div>
+              <div class="media-item-right">
+                <p class="meta-director">Director: Peter Weir</p>
+                <p class="meta-actors">Jim Carrey, Ed Harris, Laura Linney</p>
+              </div>
+              <div class="movie-poster-hover">
+                <img src="https://image.tmdb.org/t/p/w300/vuza0WqY239yBXOadKlGwJsZJFE.jpg" alt="The Truman Show poster">
               </div>
             </div>
-            <div class="media-item">
-              <span class="media-num">04</span>
-              <div class="media-info">
-                <p class="media-name">Good News</p>
-                <p class="media-sub">2025 ‧ Comedy</p>
+            <div class="media-item movie-item">
+              <div class="media-item-left">
+                <span class="media-num">04</span>
+                <div class="media-info">
+                  <p class="media-name">Good News</p>
+                  <p class="media-sub">2025 ‧ Comedy</p>
+                </div>
+              </div>
+              <div class="media-item-right">
+                <p class="meta-director">Director: Byun Sung-hyun</p>
+                <p class="meta-actors">Sul Kyung-gu, Hong Kyung, Ryoo Seung-bum</p>
+              </div>
+              <div class="movie-poster-hover">
+                <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/uA3o8q7JTym6lUM8pnITwQDfvhO.jpg" alt="Good News poster">
               </div>
             </div>
-            <div class="media-item">
-              <span class="media-num">05</span>
-              <div class="media-info">
-                <p class="media-name">The Green Mile</p>
-                <p class="media-sub">1999 ‧ Drama</p>
+            <div class="media-item movie-item">
+              <div class="media-item-left">
+                <span class="media-num">05</span>
+                <div class="media-info">
+                  <p class="media-name">The Green Mile</p>
+                  <p class="media-sub">1999 ‧ Drama</p>
+                </div>
+              </div>
+              <div class="media-item-right">
+                <p class="meta-director">Director: Frank Darabont</p>
+                <p class="meta-actors">Tom Hanks, Michael Clarke Duncan, David Morse</p>
+              </div>
+              <div class="movie-poster-hover">
+                <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/8VG8fDNiy50H4FedGwdSVUPoaJe.jpg " alt="The Green Mile poster">
               </div>
             </div>
           </div>
@@ -794,35 +900,35 @@
           </p>
           <div class="media-list">
             <div class="media-item">
-              <span class="media-num">01</span>
+              <img class="album-art" src="https://i.scdn.co/image/ab67616d0000b273726005f0f81903e157d9dbc7" alt="Easier album art">
               <div class="media-info">
                 <p class="media-name">Easier</p>
                 <p class="media-sub">5 Seconds of Summer</p>
               </div>
             </div>
             <div class="media-item">
-              <span class="media-num">02</span>
+              <img class="album-art" src="https://i.scdn.co/image/ab67616d0000b273ddd180bbbecb2dfa72a0907e" alt="Disarray album art">
               <div class="media-info">
                 <p class="media-name">Disarray</p>
                 <p class="media-sub">Bad Computer</p>
               </div>
             </div>
             <div class="media-item">
-              <span class="media-num">03</span>
+              <img class="album-art" src="https://i.scdn.co/image/ab67616d0000b27387068f2e2c2c45be59ba6b97" alt="Geniuses and Thieves album art">
               <div class="media-info">
                 <p class="media-name">Geniuses and Thieves</p>
                 <p class="media-sub">Gentle Bones</p>
               </div>
             </div>
             <div class="media-item">
-              <span class="media-num">04</span>
+              <img class="album-art" src="https://i.scdn.co/image/ab67616d00004851616d4cdfea9d93b6043e821b" alt="Coconut Grove album art">
               <div class="media-info">
                 <p class="media-name">Coconut Grove</p>
                 <p class="media-sub">Deep Chills</p>
               </div>
             </div>
             <div class="media-item">
-              <span class="media-num">05</span>
+              <img class="album-art" src="https://i.scdn.co/image/ab67616d0000b273a954408e456d4d9d410f448b" alt="Arcade album art">
               <div class="media-info">
                 <p class="media-name">Arcade</p>
                 <p class="media-sub">Duncan Laurence</p>
@@ -845,5 +951,41 @@
     <span class="foot-note">Built with Claude lmao</span>
   </footer>
 
+  <script>
+    // Load album art from Wikipedia's pageimages API (no API key needed, CORS-friendly)
+    async function loadAlbumArt() {
+      const imgs = document.querySelectorAll('.album-art[data-wiki]');
+      const titles = Array.from(imgs).map(img => img.dataset.wiki);
+      if (!titles.length) return;
+      const url = `https://en.wikipedia.org/w/api.php?action=query&titles=${titles.join('|')}&prop=pageimages&pithumbsize=200&pilicense=any&format=json&origin=*`;
+      try {
+        const res = await fetch(url);
+        const data = await res.json();
+        const pages = data.query.pages;
+        // Build a map: normalized title -> thumbnail url
+        const thumbMap = {};
+        for (const page of Object.values(pages)) {
+          if (page.thumbnail) {
+            thumbMap[page.title.replace(/ /g, '_')] = page.thumbnail.source;
+          }
+        }
+        // Also handle normalized titles
+        if (data.query.normalized) {
+          for (const n of data.query.normalized) {
+            const key = n.to.replace(/ /g, '_');
+            if (thumbMap[key]) thumbMap[n.from.replace(/ /g, '_')] = thumbMap[key];
+          }
+        }
+        imgs.forEach(img => {
+          const wiki = img.dataset.wiki;
+          const src = thumbMap[wiki] || thumbMap[wiki.replace(/_/g, ' ')];
+          if (src) img.src = src;
+        });
+      } catch (e) {
+        console.warn('Album art load failed:', e);
+      }
+    }
+    loadAlbumArt();
+  </script>
 </body>
 </html>
