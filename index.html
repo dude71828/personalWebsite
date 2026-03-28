@@ -24,7 +24,7 @@
     }
 
     html { scroll-behavior: smooth; }
-
+    
     body {
       background-color: var(--bg);
       color: var(--text);
@@ -241,6 +241,104 @@
       margin-bottom: 3rem;
     }
     .section-title em { font-style: italic; color: var(--text); font-weight: 500; }
+
+
+    /* ─── PHOTO STRIP ─── */
+    .photo-strip-wrap {
+      --photo-h: 200px;
+      --photo-w: 266.66666667px;
+      position: relative;
+      margin-bottom: 0.5rem;
+      overflow: hidden;
+    }
+    .photo-strip-wrap::before,
+    .photo-strip-wrap::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 48px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .photo-strip-wrap::before {
+      left: 0;
+      background: linear-gradient(to right, var(--bg), transparent);
+    }
+    .photo-strip-wrap::after {
+      right: 0;
+      background: linear-gradient(to left, var(--bg), transparent);
+    }
+    .photo-strip {
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding: 0.4rem 12.5% 0.8rem;
+      scrollbar-width: none;
+      cursor: grab;
+    }
+    .photo-strip::-webkit-scrollbar { display: none; }
+    .photo-strip::-webkit-scrollbar { height: 4px; }
+    .photo-strip::-webkit-scrollbar-track { background: transparent; }
+    .photo-strip::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+    .photo-strip.dragging {
+      cursor: grabbing;
+      scroll-behavior: auto;
+      user-select: none;
+    }
+    .photo-slide {
+      scroll-snap-align: center;
+      flex-shrink: 0;
+      width: var(--photo-w);
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .photo-slide img,
+    .photo-placeholder {
+      width: 100%;
+      height: var(--photo-h);
+      border-radius: 4px;
+      object-fit: cover;
+      display: block;
+      border: 1px solid var(--border);
+    }
+    .photo-placeholder {
+      background: linear-gradient(135deg, var(--purple-deep), var(--purple-mid));
+    }
+    .photo-caption {
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      text-align: center;
+      line-height: 1.4;
+    }
+    .photo-strip-arrows {
+      display: flex;
+      justify-content: center;
+      gap: 0.6rem;
+      margin: 0 0 2rem;
+    }
+    .photo-arrow {
+      background: rgba(155,109,255,0.08);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      color: var(--text);
+      cursor: pointer;
+      width: 2rem;
+      height: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+      user-select: none;
+    }
+    .photo-arrow:hover {
+      border-color: rgba(155,109,255,0.45);
+      color: var(--accent-soft);
+      background: rgba(155,109,255,0.15);
+    }
 
     /* ─── ACHIEVEMENTS ─── */
     .achievements-grid {
@@ -630,6 +728,42 @@
   <!-- ACHIEVEMENTS -->
   <section id="achievements">
     <h2 class="section-title">Accolades & Achievements</h2>
+    <div class="photo-strip-wrap">
+      <div class="photo-strip" id="photoStrip">
+        <div class="photo-slide">
+          <img src="pics/countrypics/dandelion.jpeg" alt="Dandelion">
+          <p class="photo-caption">EuPhO '25 - On the way to the Mount Vitosha peak</p>
+        </div>
+        <div class="photo-slide">
+          <img src="pics/countrypics/mountaintop.jpeg" alt="Mountaintop">
+          <p class="photo-caption">EuPhO '25 - At the Mount Vitosha peak</p>
+        </div>
+        <div class="photo-slide">
+          <img src="pics/countrypics/shop.jpeg" alt="Shop">
+          <p class="photo-caption">EuPhO '25 - In a random candy shop</p>
+        </div>
+        <div class="photo-slide">
+          <img src="pics/countrypics/hotelview.jpeg" alt="Hotel View">
+          <p class="photo-caption">EuPhO '25 - From the hotel window</p>
+        </div>
+        <div class="photo-slide">
+          <img src="pics/countrypics/street.jpeg" alt="Street">
+          <p class="photo-caption">IOAA '25 - India Street</p>
+        </div>
+        <div class="photo-slide">
+          <img src="pics/countrypics/hotelpond.jpeg" alt="Hotel Pond">
+          <p class="photo-caption">IOAA '25 - Hotel pond</p>
+        </div>
+        <div class="photo-slide">
+          <img src="pics/countrypics/ceremony.jpeg" alt="Ceremony">
+          <p class="photo-caption">IOAA '25 - Closing Ceremony fancy venue</p>
+        </div>
+      </div>
+    </div>
+    <div class="photo-strip-arrows">
+      <button class="photo-arrow" id="photoLeft">&#8592;</button>
+      <button class="photo-arrow" id="photoRight">&#8594;</button>
+    </div>
     <div class="achievements-grid">
       <div class="achievement-card">
         <p class="ach-year">2026</p>
@@ -807,7 +941,7 @@
                 <p class="meta-actors">Leonardo DiCaprio, Mark Ruffalo, Ben Kingsley</p>
               </div>
               <div class="movie-poster-hover">
-                <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/nrmXQ0zcZUL8jFLrakWc90IR8z9.jpg" alt="Shutter Island poster">
+                <img src="pics/movie posters/shutter.webp" alt="Shutter Island poster">
               </div>
             </div>
             <div class="media-item movie-item">
@@ -823,7 +957,7 @@
                 <p class="meta-actors">Daniel Kaluuya, Allison Williams, Bradley Whitford</p>
               </div>
               <div class="movie-poster-hover">
-                <img src="https://image.tmdb.org/t/p/w300/tFXcEccSQMf3lfhfXKSU9iRBpa3.jpg" alt="Get Out poster">
+                <img src="pics/movie posters/getout.webp" alt="Get Out poster">
               </div>
             </div>
             <div class="media-item movie-item">
@@ -839,7 +973,7 @@
                 <p class="meta-actors">Jim Carrey, Ed Harris, Laura Linney</p>
               </div>
               <div class="movie-poster-hover">
-                <img src="https://image.tmdb.org/t/p/w300/vuza0WqY239yBXOadKlGwJsZJFE.jpg" alt="The Truman Show poster">
+                <img src="pics/movie posters/truman.webp" alt="The Truman Show poster">
               </div>
             </div>
             <div class="media-item movie-item">
@@ -855,7 +989,7 @@
                 <p class="meta-actors">Sul Kyung-gu, Hong Kyung, Ryoo Seung-bum</p>
               </div>
               <div class="movie-poster-hover">
-                <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/uA3o8q7JTym6lUM8pnITwQDfvhO.jpg" alt="Good News poster">
+                <img src="pics/movie posters/goodnews.webp" alt="Good News poster">
               </div>
             </div>
             <div class="media-item movie-item">
@@ -871,7 +1005,7 @@
                 <p class="meta-actors">Tom Hanks, Michael Clarke Duncan, David Morse</p>
               </div>
               <div class="movie-poster-hover">
-                <img src="https://media.themoviedb.org/t/p/w440_and_h660_face/8VG8fDNiy50H4FedGwdSVUPoaJe.jpg " alt="The Green Mile poster">
+                <img src="pics/movie posters/greenmile.webp" alt="The Green Mile poster">
               </div>
             </div>
           </div>
@@ -900,35 +1034,35 @@
           </p>
           <div class="media-list">
             <div class="media-item">
-              <img class="album-art" src="https://i.scdn.co/image/ab67616d0000b273726005f0f81903e157d9dbc7" alt="Easier album art">
+              <img class="album-art" src="pics/albumart/easier.jpg" alt="Easier album art">
               <div class="media-info">
                 <p class="media-name">Easier</p>
                 <p class="media-sub">5 Seconds of Summer</p>
               </div>
             </div>
             <div class="media-item">
-              <img class="album-art" src="https://i.scdn.co/image/ab67616d0000b273ddd180bbbecb2dfa72a0907e" alt="Disarray album art">
+              <img class="album-art" src="pics/albumart/disarray.jpg" alt="Disarray album art">
               <div class="media-info">
                 <p class="media-name">Disarray</p>
                 <p class="media-sub">Bad Computer</p>
               </div>
             </div>
             <div class="media-item">
-              <img class="album-art" src="https://i.scdn.co/image/ab67616d0000b27387068f2e2c2c45be59ba6b97" alt="Geniuses and Thieves album art">
+              <img class="album-art" src="pics/albumart/geniuses.jpg" alt="Geniuses and Thieves album art">
               <div class="media-info">
                 <p class="media-name">Geniuses and Thieves</p>
                 <p class="media-sub">Gentle Bones</p>
               </div>
             </div>
             <div class="media-item">
-              <img class="album-art" src="https://i.scdn.co/image/ab67616d00004851616d4cdfea9d93b6043e821b" alt="Coconut Grove album art">
+              <img class="album-art" src="pics/albumart/coconut.jpg" alt="Coconut Grove album art">
               <div class="media-info">
                 <p class="media-name">Coconut Grove</p>
                 <p class="media-sub">Deep Chills</p>
               </div>
             </div>
             <div class="media-item">
-              <img class="album-art" src="https://i.scdn.co/image/ab67616d0000b273a954408e456d4d9d410f448b" alt="Arcade album art">
+              <img class="album-art" src="pics/albumart/arcade.jpg" alt="Arcade album art">
               <div class="media-info">
                 <p class="media-name">Arcade</p>
                 <p class="media-sub">Duncan Laurence</p>
@@ -986,6 +1120,58 @@
       }
     }
     loadAlbumArt();
+  </script>
+  <script>
+    // ── Photo strip ──
+    const strip = document.getElementById('photoStrip');
+    const btnL  = document.getElementById('photoLeft');
+    const btnR  = document.getElementById('photoRight');
+
+    function slideWidth() {
+      const s = strip.querySelector('.photo-slide');
+      return s ? s.offsetWidth + parseInt(getComputedStyle(strip).gap) : 200;
+    }
+
+    // Clone AFTER originals only, then clone AFTER that — 3 sets total: [orig][clone1][clone2]
+    // Start at clone1 (offset = 1 set), wrap back to clone1 seamlessly
+    const originals = Array.from(strip.querySelectorAll('.photo-slide'));
+    originals.forEach(s => strip.appendChild(s.cloneNode(true)));
+    originals.forEach(s => strip.appendChild(s.cloneNode(true)));
+
+    const setCount = originals.length;
+
+    function jumpTo(pos) {
+      strip.style.scrollBehavior = 'auto';
+      strip.scrollLeft = pos;
+      strip.style.scrollBehavior = '';
+    }
+
+    // Start at the first clone set (middle)
+    window.addEventListener('load', () => jumpTo(slideWidth() * setCount));
+
+    function checkWrap() {
+      const sw = slideWidth();
+      const setW = sw * setCount;
+      if (strip.scrollLeft < sw * 0.5)          jumpTo(strip.scrollLeft + setW);
+      if (strip.scrollLeft > setW * 2 - sw * 0.5) jumpTo(strip.scrollLeft - setW);
+    }
+    strip.addEventListener('scroll', checkWrap, { passive: true });
+
+    btnR.addEventListener('click', () => strip.scrollBy({ left: slideWidth(), behavior: 'smooth' }));
+    btnL.addEventListener('click', () => strip.scrollBy({ left: -slideWidth(), behavior: 'smooth' }));
+
+    let isDragging = false, startX, startScroll;
+    strip.addEventListener('mousedown', e => {
+      isDragging = true; startX = e.pageX - strip.offsetLeft; startScroll = strip.scrollLeft;
+      strip.classList.add('dragging');
+    });
+    document.addEventListener('mouseup', () => { isDragging = false; strip.classList.remove('dragging'); });
+    document.addEventListener('mousemove', e => {
+      if (!isDragging) return;
+      e.preventDefault();
+      strip.scrollLeft = startScroll - (e.pageX - strip.offsetLeft - startX);
+    });
+
   </script>
 </body>
 </html>
